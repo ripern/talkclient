@@ -184,7 +184,7 @@ public class TalkClient implements GoogleApiClient.ConnectionCallbacks, GoogleAp
                         return;
                     }
                 }
-                mTalkDataAdapter.onRecieveResult(new DataMap());
+                //mTalkDataAdapter.onRecieveResult(new DataMap());
                 dataItems.release();
             }
         });
@@ -272,4 +272,8 @@ public class TalkClient implements GoogleApiClient.ConnectionCallbacks, GoogleAp
         }
         return BitmapFactory.decodeStream(assetInputStream);
     }
+
+	public GoogleApiClient getGoogleApiClient() {
+		return mGoogleApiClient;
+	}
 }
