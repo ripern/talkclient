@@ -3,18 +3,19 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.12.+'
+        classpath 'com.android.tools.build:gradle:1.2.3'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.3'
     }
 }
 
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
 
 android {
     compileSdkVersion 20
     buildToolsVersion "19.1.0"
 
     defaultConfig {
-        applicationId "se.heinrisch.talkclient"
         minSdkVersion 14
         targetSdkVersion 20
         versionCode 1
@@ -33,14 +34,6 @@ android {
     }
 }
 
-task makeJar(type: Copy) {
-    from('build/intermediates/bundles/release/')
-    into('build/outputs/')
-    include('classes.jar')
-    rename ('classes.jar', 'TalkClient.jar')
-}
-
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.google.android.gms:play-services-wearable:+'
+    compile 'com.google.android.gms:play-services-wearable:7.5.0'
 }
